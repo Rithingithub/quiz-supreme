@@ -5,4 +5,5 @@
     <string name="dark">Dark</string>
     <string name="system_default">System Default</string>
     <string name="set_battery">Battery saver</string>
+    <string name="text">"Terms &amp; Conditions"</string>
 </resources>

@@ -15,4 +15,11 @@
     <color name="card_background">#ffff</color>
     <color name="text_color">#1b1b1b</color>
     <color name="text_secondery_color">#44464e</color>
+    <color name="colorPrimary">#ffde00</color>
+    <color name="colorPrimaryDark">#fbc02d</color>
+    <color name="colorAccent">#003e9f</color>
+
+
+    <color name="bg_main">#428bca</color>
+    <color name="btn_logout_bg">#ff6861</color>
 </resources>

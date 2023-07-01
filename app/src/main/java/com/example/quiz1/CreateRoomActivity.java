@@ -6,19 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
+
+import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CreateRoomActivity extends AppCompatActivity {
+    MaterialCardView CustomCard, CreateCard;
 
     public static int checked;
+    private Object materialAlertDialogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_room);
+        setContentView(R.layout.activity_create);
 
         SharedPreferences sharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -49,10 +57,18 @@ public class CreateRoomActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY);
                 break;
         }
-    }
-    @Override
-    public void onBackPressed() {
-        startActivity(new Intent(CreateRoomActivity.this, MainActivity.class));
-        finish();
+
+        CustomCard = findViewById(R.id.CustomCard);
+        CreateCard = findViewById(R.id.CreateCard);
+
+        CustomCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(CreateRoomActivity.this, AttemptTest.class));
+                finish();
+            }
+        });
     }
 }
+
+

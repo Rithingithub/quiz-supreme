@@ -9,6 +9,7 @@ import android.view.WindowManager;
 public class ScreenshotProtectionApplication extends Application {
 
     private boolean shouldResetQuiz = false;
+    private boolean shouldReturnToHomepage = false;
 
     @Override
     public void onCreate() {
@@ -27,8 +28,8 @@ public class ScreenshotProtectionApplication extends Application {
                     WindowManager.LayoutParams.FLAG_SECURE
             );
 
-            // Check if the activity is BasicQuiz or DifficultQuiz
-            if (activity instanceof BasicQuiz || activity instanceof DifficultQuiz) {
+            // Check if the activity is BasicQuiz, DifficultQuiz
+            if (activity instanceof BasicQuiz || activity instanceof DifficultQuiz ) {
                 isQuizActivity = true;
             } else {
                 isQuizActivity = false;
@@ -48,6 +49,8 @@ public class ScreenshotProtectionApplication extends Application {
             // Check if the activity being paused is a quiz activity
             if (isQuizActivity) {
                 ((ScreenshotProtectionApplication) activity.getApplication()).shouldResetQuiz = true;
+            } else if (activity instanceof ResultActivity) {
+                ((ScreenshotProtectionApplication) activity.getApplication()).shouldReturnToHomepage = true;
             }
         }
 
@@ -55,11 +58,17 @@ public class ScreenshotProtectionApplication extends Application {
         public void onActivityStopped(Activity activity) {
             ScreenshotProtectionApplication app = (ScreenshotProtectionApplication) activity.getApplication();
             if (app.shouldResetQuiz) {
-                // Reset the quiz and show the homepage
+                // Reset the flag to false and start ResultActivity
+                app.shouldResetQuiz = false;
+                Intent intent = new Intent(activity, ResultActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                activity.startActivity(intent);
+            } else if (app.shouldReturnToHomepage) {
+                // Reset the flag to false and start MainActivity
+                app.shouldReturnToHomepage = false;
                 Intent intent = new Intent(activity, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 activity.startActivity(intent);
-                app.shouldResetQuiz = false;
             }
         }
 

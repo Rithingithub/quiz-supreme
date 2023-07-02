@@ -27,9 +27,20 @@
         android:name=".ScreenshotProtectionApplication"
         android:theme="@style/Theme.QUIZ1"
         tools:targetApi="31">
+
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
+
         <activity
             android:name=".AboutActivity"
             android:exported="false" />
@@ -46,7 +57,6 @@
             android:name=".create_quiz_main"
             android:exported="false">
         </activity>
-
         <activity
             android:name=".Custom_quiz"
             android:exported="false">
@@ -54,15 +64,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <service android:name=".NotificationService" />
     </application>
 

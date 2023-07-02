@@ -37,7 +37,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // Configure Google Sign-In
+        String webClientId = "162499832277-6hh1683okg2qn57bg5vgun52l90ksgbg.apps.googleusercontent.com"; // Replace with your web client ID
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(webClientId)
                 .requestEmail()
                 .build();
 
@@ -98,6 +100,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToMainActivity() {
+        Toast.makeText(LoginActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
         finish();

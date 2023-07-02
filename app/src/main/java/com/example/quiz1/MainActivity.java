@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
         easycard = findViewById(R.id.easyCard);
         difficultcard = findViewById(R.id.difficultCard);
         aboutcard = findViewById(R.id.aboutCard);
-        joinRoomCard = findViewById(R.id.joinRoomCard);
-        createRoomCard = findViewById(R.id.createRoomCard);
+        joinRoomCard = findViewById(R.id.CustomCard);
+        createRoomCard = findViewById(R.id.CreateCard);
 
         easycard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         joinRoomCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, JoinRoomActivity.class));
+                startActivity(new Intent(MainActivity.this, Custom_quiz.class));
                 finish();
             }
         });
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         createRoomCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, CreateRoomActivity.class));
+                startActivity(new Intent(MainActivity.this, create_quiz_main.class));
                 finish();
             }
         });

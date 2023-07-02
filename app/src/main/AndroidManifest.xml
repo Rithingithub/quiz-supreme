@@ -1,8 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="com.google.android.c2dm.permission.SEND"/>
 
     <application
         android:allowBackup="true"
@@ -19,12 +31,6 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateRoomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".JoinRoomActivity"
-            android:exported="false" />
-        <activity
             android:name=".AboutActivity"
             android:exported="false" />
         <activity
@@ -37,6 +43,15 @@
             android:name=".DifficultQuiz"
             android:exported="false" />
         <activity
+            android:name=".create_quiz_main"
+            android:exported="false">
+        </activity>
+
+        <activity
+            android:name=".Custom_quiz"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
@@ -48,6 +63,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".NotificationService" />
     </application>
 
 </manifest>

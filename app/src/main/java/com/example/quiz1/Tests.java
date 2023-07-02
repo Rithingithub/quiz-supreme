@@ -141,7 +141,7 @@ public class Tests extends AppCompatActivity {
             (listItem.findViewById(R.id.item_button)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(mContext, AttemptTest.class);
+                    Intent intent = new Intent(mContext,Tests.class);
                     intent.putExtra("Questions", dataList.get(position));
                     intent.putExtra("TESTNAME", dataList.get(position).getName());
                     startActivity(intent);

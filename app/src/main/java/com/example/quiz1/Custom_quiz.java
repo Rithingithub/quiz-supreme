@@ -1,6 +1,6 @@
 
 
-package com.example.quiz1.Create_Quiz;
+package com.example.quiz1;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -204,8 +204,8 @@ public class Custom_quiz extends AppCompatActivity {
                 }
                 else
                 {
-                    Toasty.error(getApplicationContext(),
-                            "Incomplete Question format", Toasty.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Incomplete Question format", Toast.LENGTH_SHORT).show();
                 }
             }
         });

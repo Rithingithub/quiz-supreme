@@ -4,9 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.animation.Animator;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.example.quiz1.Create_Quiz.Custom_quiz;
+import com.example.quiz1.Custom_quiz;
 import com.example.quiz1.R;
 
 public class Splash_create_quiz extends AppCompatActivity {

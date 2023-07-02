@@ -1,4 +1,4 @@
-package com.example.quiz1.Create_Quiz;
+package com.example.quiz1;
 
 import android.content.Intent;
 import android.os.Bundle;
